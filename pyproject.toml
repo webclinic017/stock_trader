@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "stock_trader"
-version = "0.0.1"
+version = "0.0.2"
 description = "Stock Trader"
 authors = ["Eric Evans <ciresnave@gmail.com>"]
 license = "MIT"
