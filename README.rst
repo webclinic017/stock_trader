@@ -13,7 +13,7 @@ Stock Trader
 .. |Python Version| image:: https://img.shields.io/pypi/pyversions/stock_trader
    :target: https://pypi.org/project/stock_trader
    :alt: Python Version
-.. |License| image:: https://img.shields.io/pypi/l/stock_trader
+.. |License| image:: https://img.shields.io/pypi/l/stock-trader
    :target: https://opensource.org/licenses/MIT
    :alt: License
 .. |Read the Docs| image:: https://img.shields.io/readthedocs/stock_trader/latest.svg?label=Read%20the%20Docs
