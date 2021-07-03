@@ -5,7 +5,7 @@ Stock Trader
 
 |Read the Docs| |Tests| |Codecov|
 
-|pre-commit| |Black|
+|pre-commit| |Black| |Issues|
 
 .. |PyPI| image:: https://img.shields.io/pypi/v/stock_trader.svg
    :target: https://pypi.org/project/stock_trader/
@@ -31,7 +31,9 @@ Stock Trader
 .. |Black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
    :target: https://github.com/psf/black
    :alt: Black
-
+.. image:: https://img.shields.io/github/issues/CireSnave/stock_trader?style=plastic
+   :target: https://github.com/ciresnave/stock_trader/issues
+   :alt: GitHub issues
 
 Features
 --------
