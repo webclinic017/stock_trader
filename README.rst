@@ -31,7 +31,7 @@ Stock Trader
 .. |Black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
    :target: https://github.com/psf/black
    :alt: Black
-.. image:: https://img.shields.io/github/issues/CireSnave/stock_trader?style=plastic
+.. |Issues| image:: https://img.shields.io/github/issues/CireSnave/stock_trader?style=plastic
    :target: https://github.com/ciresnave/stock_trader/issues
    :alt: GitHub issues
 
