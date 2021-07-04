@@ -61,21 +61,19 @@ Planned features before version 1.0 are:
   - CSV
   - Yahoo!Finance (via yfinance_)
   - TD Ameritrade (via tda-api_)
-  - Alpaca
-  - More will be added as time permits
+  - More back ends will be added as time permits
 - Backtesting Interface
   - Pluggable profit probability functions
 - Generic Broker Interface for placing orders with several back ends
-  - TD Ameritrade (via tda-api)
-  - Alpaca
-  - More will be added as time permits
+  - TD Ameritrade (via tda-api_)
+  - More back ends will be added as time permits
 
 
 Requirements
 ------------
 
 Python ^3.6.1
-Click ^8.0.1
+Typer ^0.3.2
 
 
 Installation
