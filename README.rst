@@ -35,16 +35,47 @@ Stock Trader
    :target: https://github.com/ciresnave/stock_trader/issues
    :alt: GitHub issues
 
+Overview
+--------
+
+Stock Trader retrieves historical stock data for one or more stocks, runs one or more trading
+algorithms against the historical data optimizing algorithm settings on each pass, and picks
+the most profitable way to trade each stock.  It then accepts a stream of current information
+about each of the stocks watching for a buy-in point that has a high probability of profit.  
+It then either alerts the user to buy or, alternatively, can directly send a buy order to a
+broker's API.  It then continues to monitor the stream of current information about each of
+the stocks watching for either a drop in the probability of continued profit of the current
+position or for another stock's probability of profit to go higher than that of the current
+position.  It will then either alert the user to sell the current position or, alternatively,
+can directly send a sell order to a broker's API.
+
+
 Features
 --------
 
-* TODO
+Until version 1.0, this should be considered a work in progress.  Not all features exist yet.
+
+Planned features before version 1.0 are:
+
+- Generic Interface for Historical Stock Data Retrieval with several back ends
+  - CSV
+  - Yahoo!Finance (via yfinance)
+  - TD Ameritrade (via tda-api)
+  - Alpaca
+  - More will be added as time permits
+- Backtesting Interface
+  - Pluggable profit probability functions
+- Generic Broker Interface for placing orders with several back ends
+  - TD Ameritrade (via tda-api)
+  - Alpaca
+  - More will be added as time permits
 
 
 Requirements
 ------------
 
-* TODO
+Python ^3.6.1
+Click ^8.0.1
 
 
 Installation
