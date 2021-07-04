@@ -59,8 +59,8 @@ Planned features before version 1.0 are:
 
 - Generic Interface for Historical Stock Data Retrieval with several back ends
   - CSV
-  - Yahoo!Finance (via yfinance)
-  - TD Ameritrade (via tda-api)
+  - Yahoo!Finance (via yfinance_)
+  - TD Ameritrade (via tda-api_)
   - Alpaca
   - More will be added as time permits
 - Backtesting Interface
@@ -91,7 +91,7 @@ You can install *Stock Trader* via pip_ from PyPI_:
 Usage
 -----
 
-Please see the `Command-line Reference <Usage_>`_ for details.
+Please see the `Command-line Reference`_ for details.
 
 
 Contributing
@@ -118,7 +118,7 @@ please `file an issue`_ along with a detailed description.
 Credits
 -------
 
-This project was generated from `@cjolowicz`_'s `Hypermodern Python Cookiecutter`_ template.
+This project's skeleton was generated from `@cjolowicz`_'s `Hypermodern Python Cookiecutter`_ template using `Cookiecutter`_.
 
 .. _@cjolowicz: https://github.com/cjolowicz
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
@@ -129,4 +129,6 @@ This project was generated from `@cjolowicz`_'s `Hypermodern Python Cookiecutter
 .. _pip: https://pip.pypa.io/
 .. github-only
 .. _Contributor Guide: CONTRIBUTING.rst
-.. _Usage: https://stock_trader.readthedocs.io/en/latest/usage.html
+.. _Command-line Reference: https://stock_trader.readthedocs.io/en/latest/usage.html
+.. _yfinance: https://aroussi.com/post/python-yahoo-finance
+.. _tda-api: https://tda-api.readthedocs.io/en/latest/
