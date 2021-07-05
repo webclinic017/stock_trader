@@ -1,9 +1,12 @@
 """Command-line interface."""
-import click
+from ast import Str
+import typer
+
+command_line = typer.Typer()
 
 
-@click.command()
-@click.version_option()
+@command_line.command()
+@command_line.version_option()
 def main() -> None:
     """Stock Trader."""
 

@@ -69,11 +69,14 @@ Planned features before version 1.0 are:
   - More back ends will be added as time permits
 
 
-Requirements
+Dependencies
 ------------
 
 Python ^3.6.1
 Typer ^0.3.2
+
+Colorama ^0.4.4 (optional extra - colorizes command line interface)
+Shellingham ^1.4.0 (optional extra - detects shell to make adding shell completion easier)
 
 
 Installation
