@@ -6,9 +6,9 @@ command_line = typer.Typer()
 
 
 @command_line.command()
-@command_line.version_option()
-def main() -> None:
+def main(prog_name: str) -> None:
     """Stock Trader."""
+    return None
 
 
 if __name__ == "__main__":
