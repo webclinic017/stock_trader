@@ -1,5 +1,4 @@
 """Command-line interface."""
-from ast import Str
 import typer
 
 command_line = typer.Typer()
