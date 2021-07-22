@@ -35,16 +35,46 @@ Stock Trader
    :target: https://github.com/ciresnave/stock_trader/issues
    :alt: GitHub issues
 
+Overview
+--------
+
+Stock Trader retrieves historical stock data for one or more stocks, runs one or more trading
+algorithms against the historical data optimizing algorithm settings on each pass, and picks
+the most profitable way to trade each stock.  It then accepts a stream of current information
+about each of the stocks watching for a buy-in point that has a high probability of profit.  
+It then either alerts the user to buy or, alternatively, can directly send a buy order to a
+broker's API.  It then continues to monitor the stream of current information about each of
+the stocks watching for either a drop in the probability of continued profit of the current
+position or for another stock's probability of profit to go higher than that of the current
+position.  It will then either alert the user to sell the current position or, alternatively,
+can directly send a sell order to a broker's API.
+
+
 Features
 --------
 
-* TODO
+Until version 1.0, this should be considered a work in progress.  Not all features exist yet.
+
+Planned features before version 1.0 are:
+
+- Generic Interface for Historical Stock Data Retrieval with several back ends
+  - TD Ameritrade (via tda-api_)
+  - More back ends will be added as time permits
+- Backtesting Interface
+  - Pluggable profit probability functions
+- Generic Broker Interface for placing orders with several back ends
+  - TD Ameritrade (via tda-api_)
+  - More back ends will be added as time permits
 
 
-Requirements
+Dependencies
 ------------
 
-* TODO
+Python ^3.6.1
+Typer ^0.3.2
+
+Colorama ^0.4.4 (optional extra - colorizes command line interface)
+Shellingham ^1.4.0 (optional extra - detects shell to make adding shell completion easier)
 
 
 Installation
@@ -60,7 +90,7 @@ You can install *Stock Trader* via pip_ from PyPI_:
 Usage
 -----
 
-Please see the `Command-line Reference <Usage_>`_ for details.
+Please see the `Command-line Reference`_ for details.
 
 
 Contributing
@@ -87,7 +117,7 @@ please `file an issue`_ along with a detailed description.
 Credits
 -------
 
-This project was generated from `@cjolowicz`_'s `Hypermodern Python Cookiecutter`_ template.
+This project's skeleton was generated from `@cjolowicz`_'s `Hypermodern Python Cookiecutter`_ template using `Cookiecutter`_.
 
 .. _@cjolowicz: https://github.com/cjolowicz
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
@@ -98,4 +128,6 @@ This project was generated from `@cjolowicz`_'s `Hypermodern Python Cookiecutter
 .. _pip: https://pip.pypa.io/
 .. github-only
 .. _Contributor Guide: CONTRIBUTING.rst
-.. _Usage: https://stock_trader.readthedocs.io/en/latest/usage.html
+.. _Command-line Reference: https://stock_trader.readthedocs.io/en/latest/usage.html
+.. _yfinance: https://aroussi.com/post/python-yahoo-finance
+.. _tda-api: https://tda-api.readthedocs.io/en/latest/
