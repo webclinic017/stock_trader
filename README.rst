@@ -58,8 +58,6 @@ Until version 1.0, this should be considered a work in progress.  Not all featur
 Planned features before version 1.0 are:
 
 - Generic Interface for Historical Stock Data Retrieval with several back ends
-  - CSV
-  - Yahoo!Finance (via yfinance_)
   - TD Ameritrade (via tda-api_)
   - More back ends will be added as time permits
 - Backtesting Interface

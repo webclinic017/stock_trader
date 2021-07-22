@@ -1180,7 +1180,7 @@ shellingham = ["shellingham"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6.1"
-content-hash = "ab5bad60bde4dec62c160bc2552c7d587ab3c0003b0afe4106d3f6c5e04d309a"
+content-hash = "0edb887702867390a25d32de5646c45c21293140c04d9436c982579c0e0310e2"
 
 [metadata.files]
 alabaster = [
