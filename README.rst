@@ -61,7 +61,7 @@ Planned features before version 1.0 are:
   - TD Ameritrade (via tda-api_)
   - More back ends will be added as time permits
 - Backtesting Interface
-  - Pluggable profit probability functions
+  - Feeds previous pricing data to strategy function just like live trading
 - Generic Broker Interface for placing orders with several back ends
   - TD Ameritrade (via tda-api_)
   - More back ends will be added as time permits
