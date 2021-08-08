@@ -1,13 +1,13 @@
 """Collection of python protocols and classes that define the broker API"""
 import re
-from datetime import datetime
+from abc import abstractmethod
 from typing import Protocol
 from typing import Callable
 from typing import Any
 from typing import Union
 from typing import Tuple
-from dataclasses import dataclass
-from eepythontools.threading import RunRepeatedly
+from eepythontools.process_tools import RunRepeatedly
+from stock_trader import Quote
 
 
 class Stop:
@@ -66,41 +66,12 @@ class Stop:
             self.stop = stop
 
 
-@dataclass
-class Quote:
-    high_52week: float
-    low_52week: float
-    ask_price: float
-    ask_size: int
-    bid_price: float
-    bid_size: int
-    close_price: float
-    cusip: int
-    delayed: bool
-    description: str
-    dividend_amount: float
-    dividend_data: datetime
-    dividend_yield: float
-    exchange_name: str
-    high_price: float
-    last_price: float
-    last_size: int
-    low_price: float
-    mark: float
-    open_price: float
-    pe_ratio: float
-    regular_market_last_price: float
-    regular_market_last_size: int
-    symbol: str
-    total_volume: int
-    volatility: float
-
-
 class Broker(Protocol):
-    streaming_quotes: dict[str, RunRepeatedly]
+    requested_quotes_streams: dict[str, RunRepeatedly]
 
     """To support a new broker simply create a class that implements this."""
 
+    @abstractmethod
     def buy(
         self,
         instrument: str,
@@ -113,6 +84,7 @@ class Broker(Protocol):
         If stop != None then order is a stop order (see Stop class)."""
         raise NotImplementedError
 
+    @abstractmethod
     def sell(
         self,
         instrument: str,
@@ -120,13 +92,35 @@ class Broker(Protocol):
         limit_price: Union[float, None] = None,
         stop: Union[Stop, None] = None,
     ) -> bool:
-        """Sell an instrument.  If limit_price = None then market sell.
+        """
+        sell sells an instrument.  If limit_price = None then market sell.
         If limit_price = None then order a market sell.
-        If stop != None then order is a stop order (see Stop class)."""
+        If stop != None then order is a stop order (see Stop class).
+
+        :param instrument: The instrument to sell.
+        :type instrument: str
+        :param quantity: The number to sell.
+        :type quantity: float
+        :param limit_price: Limit price, defaults to None which sells at market.
+        :type limit_price: Union[float, None], optional
+        :param stop: [description], The Stop that triggers this order or None.
+        :type stop: Union[Stop, None], optional
+        :return: Whether order was successfully sent.
+        :rtype: bool
+        """
         raise NotImplementedError
 
-    def quote(self, instrument: str) -> Quote:
-        """Get current price quote for instrument."""
+    @abstractmethod
+    def get_quote(self, instrument: str) -> Quote:
+        """
+        get_quote gets current price quote for instrument.
+
+        :param instrument: The instrument we want a quote for.
+        :type instrument: str
+        :raises NotImplementedError: [description]
+        :return: The Quote (see Quote class for details).
+        :rtype: Quote
+        """
         raise NotImplementedError
 
     def start_streaming_quotes(
@@ -137,15 +131,15 @@ class Broker(Protocol):
         # If a broker provides a streaming quote interface, use theirs!
         # If you need quotes for more than 2 instruments, do not use this!
         # Why? Most brokers dislike getting too many requests per minute.
-        self.streaming_quotes[instrument] = RunRepeatedly(
-            30, receiver_function, self.quote, instrument
+        self.requested_quotes_streams[instrument] = RunRepeatedly(
+            30, receiver_function, self.get_quote, instrument
         )
-        self.streaming_quotes[instrument].start()
+        self.requested_quotes_streams[instrument].start()
         return True
 
     def stop_streaming_quotes(self, instrument: str) -> bool:
         """Stop receiving streaming quotes for instrument."""
         # See start_streaming_quotes for why this implementation is limited
-        self.streaming_quotes[instrument].stop()
-        del self.streaming_quotes[instrument]
+        self.requested_quotes_streams[instrument].stop()
+        del self.requested_quotes_streams[instrument]
         return True
